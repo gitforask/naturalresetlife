@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Natural Reset Life — Links</title>
+  <meta name="description" content="Natural Reset Life — official links." />
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b1220;color:#e7ecff;display:flex;justify-content:center;padding:24px}
+    .wrap{width:100%;max-width:560px}
+    .card{background:#111b33;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px}
+    h1{margin:0 0 6px 0;font-size:20px}
+    p{margin:0 0 14px 0;color:#a9b4d6;line-height:1.35}
+    .btn{display:flex;justify-content:space-between;align-items:center;padding:14px 14px;margin:10px 0;border-radius:14px;
+         text-decoration:none;background:#1b2a52;color:#e7ecff;border:1px solid rgba(255,255,255,.10)}
+    .btn:hover{background:#243766}
+    .tag{font-size:12px;color:#a9b4d6}
+    .section{margin-top:18px}
+    .section h2{font-size:14px;color:#a9b4d6;margin:0 0 8px 0;text-transform:uppercase;letter-spacing:.08em}
+    .small{font-size:12px;color:#a9b4d6;margin-top:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Natural Reset Life</h1>
+      <p>Faith-centered health & wellness. Practical, simple resets for your body + mind.</p>
+
+      <div id="links"></div>
+
+      <p class="small">
+        Disclosure: Some links may be affiliate links, meaning I may earn a small commission at no extra cost to you.
+      </p>
+    </div>
+  </div>
+
+<script>
+async function loadLinks(){
+  const res = await fetch('/links.json', {cache:'no-store'});
+  const data = await res.json();
+  const root = document.getElementById('links');
+
+  function section(title){
+    const s = document.createElement('div');
+    s.className='section';
+    const h = document.createElement('h2');
+    h.textContent=title;
+    s.appendChild(h);
+    return s;
+  }
+
+  function button(item){
+    const a = document.createElement('a');
+    a.className='btn';
+    a.href=item.url;
+    a.target='_blank';
+    a.rel='noopener';
+    a.innerHTML = `<span>${item.label}</span><span class="tag">↗</span>`;
+    return a;
+  }
+
+  // Featured
+  data.featured.forEach(x => root.appendChild(button(x)));
+
+  // Sections
+  data.sections.forEach(sec=>{
+    const s = section(sec.title);
+    sec.items.forEach(x=>s.appendChild(button(x)));
+    root.appendChild(s);
+  });
+}
+loadLinks();
+</script>
+</body>
+</html>
