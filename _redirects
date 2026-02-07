@@ -1,0 +1,12 @@
+# The only one you update every time you post:
+#/go  https://your-latest-link.com  302
+
+/go      https://example.com/latest-post-link  302
+
+# Stable “category” short links:
+ /start  https://example.com/welcome-page       302
+ /bso    https://affiliate-site.com/blackseed   302
+ /fulvic https://affiliate-site.com/fulvic      302
+ /silver https://affiliate-site.com/silver      302
+ /guide  https://drive.google.com/yourdoc       302
+ /videos https://youtube.com/yourchannel        302
