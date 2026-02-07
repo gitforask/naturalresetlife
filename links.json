@@ -1,0 +1,30 @@
+{
+  "featured": [
+    { "label": "🔥 Latest link from my posts", "url": "/go" },
+    { "label": "Start Here (New to Natural Reset?)", "url": "/start" }
+  ],
+  "sections": [
+    {
+      "title": "My favorite products",
+      "items": [
+        { "label": "Black Seed Oil", "url": "/bso" },
+        { "label": "Fulvic/Humic Minerals", "url": "/fulvic" },
+        { "label": "Colloidal Silver", "url": "/silver" }
+      ]
+    },
+    {
+      "title": "Education",
+      "items": [
+        { "label": "Free guide / notes", "url": "/guide" },
+        { "label": "YouTube / videos", "url": "/videos" }
+      ]
+    },
+    {
+      "title": "Contact",
+      "items": [
+        { "label": "WhatsApp me", "url": "https://wa.me/2557XXXXXXXX" },
+        { "label": "Email", "url": "mailto:you@example.com" }
+      ]
+    }
+  ]
+}
